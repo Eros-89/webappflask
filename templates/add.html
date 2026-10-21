@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aggiungi Pokémon</title>
+</head>
+<body>
+
+    <h1>Aggiungi un Pokémon</h1>
+
+    {% if error %}
+        <p style="color:red;">{{ error }}</p>
+    {% endif %}
+
+    <form action="{{ url_for('add_pokemon') }}" method="POST">
+        <label for="name_pokemon">Nome Pokémon:</label>
+        <input type="text" id="name_pokemon" name="name_pokemon" required>
+        <button type="submit">Aggiungi</button>
+    </form>
+
+    <br>
+    <a href="{{ url_for('index') }}">← Torna alla lista</a>
+
+</body>
+</html>

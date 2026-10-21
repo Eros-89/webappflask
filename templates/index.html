@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lista Pokémon</title>
+</head>
+<body>
+
+    <h1>Lista Pokémon</h1>
+
+    <a href="{{ url_for('add_pokemon') }}">Aggiungi nuovo Pokémon</a>
+
+    <ul>
+    {% for pokemon in pokemons %}
+        <li>
+            <hr>
+            <strong>{{ pokemon.name }}</strong><br>
+            Altezza: {{ pokemon.height }} | Peso: {{ pokemon.weight }}<br>
+            Tipi: {{ pokemon.types }}<br>
+            Stats: {{ pokemon.stats }}<br>
+
+            <a href="{{ url_for('edit_pokemon', id=pokemon.id) }}">Modifica</a>
+        </li>
+    {% else %}
+        <li>Nessun Pokémon nel database.</li>
+    {% endfor %}
+    </ul>
+
+</body>
+</html>
